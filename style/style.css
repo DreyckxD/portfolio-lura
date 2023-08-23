@@ -147,5 +147,18 @@ body {
     .apresentacao__conteudo {
         width: auto;
     }
+    @media (max-width: 700px ) {
+   .cabecalho__menu {
+    flex-direction: column;
+    gap: 0.1rem;    
+    }
+
+    .apresentacao__links__navegacao {
+        font-size: 1.3rem;
+    }
+
+    .apresentacao__links__navegacao{
+        width: 100%;
+    }
 
 }
