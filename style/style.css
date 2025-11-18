@@ -1,25 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat&display=swap');
+/* 1. Importação limpa e única */
 @import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
 
-:root {        
-        --cor-primaria: #F1F6F9;
-        --cor-secundaria: #301E67;
-        --cor-terciaria: #5B8FB9;
-        --cor-houver: #212A3E;
+:root {
+    --cor-primaria: #F1F6F9;
+    --cor-secundaria: #301E67;
+    --cor-terciaria: #5B8FB9;
+    --cor-hover: #212A3E; /* 4. Corrigido typo 'houver' */
 
-        --fonte-primaria: 'Krona One', sans-serif;
-        --fonte-secundaria: 'Montserrat', sans-serif;
+    --fonte-primaria: 'Krona One', sans-serif;
+    --fonte-secundaria: 'Montserrat', sans-serif;
 }
 
 * {
     margin: 0;
     padding: 0;
+    /* 3. Melhor prática: box-sizing global */
+    box-sizing: border-box; 
 }
 
 body {
     background-color: var(--cor-primaria);
     color: var(--cor-secundaria);
-    box-sizing: border-box;
+    /* box-sizing removido daqui pois já está no * */
 }
 
 .cabecalho {
@@ -43,7 +45,8 @@ body {
     padding: 3% 15%;
     display: flex;
     align-items: center;
-    justify-content: var(--fonte-primaria);
+    /* 1. CORREÇÃO IMPORTANTE: Usar alinhamento, não fonte */
+    justify-content: space-between; 
     gap: 82px;
 }
 
@@ -108,6 +111,8 @@ body {
     font-weight: 400;
 }
 
+/* Estas classes não apareceram no seu HTML anterior, 
+   mas mantive caso use em outra página */
 .link__experiencias {
     text-decoration: none;
     color: var(--cor-secundaria);
@@ -127,7 +132,11 @@ body {
 }
 
 .apresentacao__links__navegacao:hover {
-    background-color: var(--cor-secundaria);
+    background-color: var(--cor-hover); /* Atualizado com o nome correto */
+    /* DICA: Adicionei mudança de cor da letra para contraste */
+    color: var(--cor-primaria); 
+    border-color: var(--cor-hover);
+    cursor: pointer;
 }
 
 .link__experiencias:hover {
@@ -158,20 +167,17 @@ body {
     .apresentacao__conteudo {
         width: auto;
     }
-
 }
 
 @media (max-width: 700px) {
     .cabecalho__menu {
         flex-direction: column;
         gap: 0.1rem;
+        align-items: center; /* Centraliza os itens do menu no mobile */
     }
 
     .apresentacao__links__navegacao {
         font-size: 1.3rem;
-    }
-
-    .apresentacao__links__navegacao {
         width: 100%;
     }
 }
